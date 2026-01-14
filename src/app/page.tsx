@@ -2,7 +2,7 @@ import Hero from "@/components/dashboard/Hero";
 
 export default function Home (){
     return(
-        <main>  
+        <main className="min-h-screen bg-white">  
           <Hero />  
         </main>
     );

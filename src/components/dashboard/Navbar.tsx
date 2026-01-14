@@ -17,7 +17,7 @@ export default function Navbar({ children }: { children?: React.ReactNode }) {
   return (
     <>
       {/* Sticky Navbar */}
-      <header className="bg-white sticky top-0 z-50 text-black border-b border-gray-200 shadow-sm">
+      <header className="bg-white sticky top-0 z-50 text-black">
         <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
           {/* Left Nav Items */}
@@ -35,12 +35,12 @@ export default function Navbar({ children }: { children?: React.ReactNode }) {
           </ul>
 
           {/* Center Logo */}
-          <div className="flex-shrink-0 absolute left-170 top-3">
+          <div className="flex-shrink-0 absolute left-159 top-1">
             <Link href="/">
               <Image
                 src={Logo}
                 alt="Pickbleplay Logo"
-                className="object-contain w-35 h-auto"
+                className="object-contain w-42 h-auto border-8 border-white rounded-full"
               />
             </Link>
           </div>
