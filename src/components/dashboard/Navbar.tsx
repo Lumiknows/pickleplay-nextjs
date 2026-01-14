@@ -35,7 +35,7 @@ export default function Navbar({ children }: { children?: React.ReactNode }) {
           </ul>
 
           {/* Center Logo */}
-          <div className="flex-shrink-0 absolute left-150 top-3">
+          <div className="flex-shrink-0 absolute left-170 top-3">
             <Link href="/">
               <Image
                 src={Logo}
