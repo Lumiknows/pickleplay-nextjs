@@ -22,7 +22,7 @@ export default function Hero() {
         />
         {/* Left info card */}
         <div className="absolute z-40 top-133 left-5">
-            <h1 className="text-[30px] font-semibold">
+            <h1 className="text-[30px] font-semibold font-white">
                 find a local court<br></br>near you
             </h1>
         </div>
