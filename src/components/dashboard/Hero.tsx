@@ -22,7 +22,7 @@ export default function Hero() {
         />
         {/* Left info card */}
         <div className="absolute z-40 top-133 left-5">
-            <h1 className="text-[30px] font-semibold font-white">
+            <h1 className="text-[30px] font-semibold text-white ">
                 find a local court<br></br>near you
             </h1>
         </div>
@@ -40,9 +40,9 @@ export default function Hero() {
         <div className="absolute top-150  w-87 h-full bg-[#97A87A] border-white rounded-xl p-5 text-sm"/>
         <div className="absolute top-150 left-9 w-90 h-full bg-[#FFF] border-white border-10 rounded-2xl p-5 text-sm"/>
         {/* Right info card */}
-        <div className="absolute bottom-8 right-8 bg-white/90 backdrop-blur rounded-xl p-5 text-sm">
+        <div className="absolute bottom-8 right-8 bg-white/10 backdrop-blur-md rounded-xl p-5 text-sm text-white">
           <p className="font-semibold mb-2">why? Choose PiclePlay</p>
-          <ul className="space-y-1 text-gray-600">
+          <ul className="space-y-1 text-white/80">
             <li>• fast transaction</li>
             <li>• no ads</li>
             <li>• easy to locate</li>
