@@ -10,9 +10,9 @@ const outfit = Outfit({
 
 export default function Hero() {
   return (
-    <div className={`mx-auto w-full max-w-[1400px] h-[720px] rounded-2xl overflow-hidden ${outfit.className}`}>
+    <div className={`mx-auto w-full max-w-[1400px] h-[720px] ${outfit.className}`}>
       {/* Background */}
-      <div className="relative w-full h-full">
+      <div className="absolute w-full h-full">
         <Image
           src={Hero_BG}
           alt="Hero background"
@@ -34,11 +34,6 @@ export default function Hero() {
                 Join a session
             </button>
         </div>
-        <div className="absolute top-125 -left-4 w-72 h-100 bg-[#FFF] border-white z-20 rounded-2xl p-5 text-sm overflow-hidden"/>
-        <div className="absolute top-130 -left-8 w-72 h-100 bg-[#97A87A] border-white z-20 rounded-2xl p-5 text-sm overflow-hidden"/>
-        <div className="absolute top-155 left-7 w-87 h-full bg-[#97A87A] rounded-xl z-30 p-5 text-sm"/>
-        <div className="absolute top-150  w-87 h-full bg-[#97A87A] border-white rounded-xl p-5 text-sm"/>
-        <div className="absolute top-150 left-9 w-90 h-full bg-[#FFF] border-white border-10 rounded-2xl p-5 text-sm"/>
         {/* Right info card */}
         <div className="absolute bottom-8 right-8 bg-white/10 backdrop-blur-md rounded-xl p-5 text-sm text-white">
           <p className="font-semibold mb-2">why? Choose PiclePlay</p>
