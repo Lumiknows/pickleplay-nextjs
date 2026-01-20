@@ -52,8 +52,11 @@ export default function Navbar({ children }: { children?: React.ReactNode }) {
               <Image
                 src={Logo}
                 alt="Pickbleplay Logo"
-                className="object-contain w-28 h-auto rounded-full"
-                priority
+                className={`
+                  object-contain rounded-full
+                  transition-all duration-500 ease-in-out
+                  ${scrolled ? "w-16 h-16 rotate-360" : "w-28 h-auto rotate-0"}
+                `}
               />
             </Link>
           </div>

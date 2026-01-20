@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Hero_BG from "@/assets/background/hero_bg.png";
+import heroBg from "@/assets/background/hero_bg.png";
 import { Outfit } from "next/font/google";
 
 const outfit = Outfit({
@@ -8,25 +8,24 @@ const outfit = Outfit({
   weight: ["400", "500", "600", "900"],
 });
 
+
 export default function Hero() {
   return (
-    <div className={`mx-auto w-full max-w-[1400px] h-[720px] ${outfit.className}`}>
-      {/* Background */}
-      <div className="absolute w-full h-full">
+    <main className={outfit.className}>
+      <div className="w-full h-[720px]">
         <Image
-          src={Hero_BG}
-          alt="Hero background"
+          src={heroBg}
+          alt="hero background"
           fill
           priority
           className="object-cover"
         />
-        {/* Left info card */}
-        <div className="absolute z-40 top-133 left-5">
-            <h1 className="text-[30px] font-semibold text-white ">
-                find a local court<br></br>near you
-            </h1>
+        <div className="z-100 absolute top-70 left-25">
+          <h1 className="font-semibold text-[70px]" style={{textShadow: "0px 6px 8px rgba(0,0,0,0.6)" }}>
+            Find Your Next Game <br></br> in Seconds.
+          </h1>
         </div>
-        <div className="absolute z-100">
+        <div className="absolute z-100 -top-30 left-25">
             <button className="absolute top-162 h-15 w-40 left-5 bg-white/90 backdrop-blur text-[#97A87A] text-[18px] rounded-xl p-5 text-sm">
                 Book a court
             </button>
@@ -34,16 +33,7 @@ export default function Hero() {
                 Join a session
             </button>
         </div>
-        {/* Right info card */}
-        <div className="absolute bottom-8 right-8 bg-white/10 backdrop-blur-md rounded-xl p-5 text-sm text-white">
-          <p className="font-semibold mb-2">why? Choose PiclePlay</p>
-          <ul className="space-y-1 text-white/80">
-            <li>• fast transaction</li>
-            <li>• no ads</li>
-            <li>• easy to locate</li>
-          </ul>
-        </div>
       </div>
-    </div>
+    </main>
   );
 }
