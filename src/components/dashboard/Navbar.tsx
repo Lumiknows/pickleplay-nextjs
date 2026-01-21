@@ -9,9 +9,9 @@ export default function Navbar({ children }: { children?: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const navItems = ["Home", "Find Courts", "About", "Contact", "Download App"];
-  const leftNav = navItems.slice(0, 2);
-  const rightNav = navItems.slice(2);
+  const navItems = ["Home", "Find Courts", "Join Session", "About", "Contact", "Download App"];
+  const leftNav = navItems.slice(0, 3);
+  const rightNav = navItems.slice(3);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 120);
@@ -24,7 +24,7 @@ export default function Navbar({ children }: { children?: React.ReactNode }) {
       {/* Floating Glass Navbar */}
       <header
         className={`
-          fixed z-50 left-1/2 -translate-x-1/2
+          fixed relative absolute z-500 left-1/2 -translate-x-1/2
           transition-all duration-300 ease-in-out
           ${scrolled ? "top-0 w-full rounded-none" : "top-6 w-[85%] rounded-full"}
           bg-black/70 backdrop-blur-md text-white shadow-lg
@@ -33,12 +33,18 @@ export default function Navbar({ children }: { children?: React.ReactNode }) {
         <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
 
           {/* Left Nav */}
-          <ul className="hidden md:flex items-center gap-10">
+          <ul className="hidden md:flex items-center gap-15">
             {leftNav.map((item, idx) => (
               <li key={idx}>
                 <Link
                   href={`/${item === "Home" ? "" : item.toLowerCase().replace(/ /g, "-")}`}
-                  className="font-medium hover:text-blue-400 transition-colors"
+                  className={`font-medium transition-colors px-4 py-2 rounded-full
+                    ${
+                      item === "Download App"
+                        ? "bg-green-500 hover:bg-green-600 text-white shadow-md"
+                        : "hover:text-blue-400"
+                    }
+                  `}
                 >
                   {item}
                 </Link>
@@ -67,7 +73,13 @@ export default function Navbar({ children }: { children?: React.ReactNode }) {
               <li key={idx}>
                 <Link
                   href={`/${item === "Home" ? "" : item.toLowerCase().replace(/ /g, "-")}`}
-                  className="font-medium hover:text-blue-400 transition-colors"
+                  className={`font-medium transition-colors px-8 py-4 rounded-full
+                    ${
+                      item === "Download App"
+                        ? "bg-green-500 hover:bg-green-600 text-white shadow-md"
+                        : "hover:text-blue-400"
+                    }
+                  `}
                 >
                   {item}
                 </Link>
@@ -94,7 +106,13 @@ export default function Navbar({ children }: { children?: React.ReactNode }) {
               <li key={idx} className="w-full">
                 <Link
                   href={`/${item === "Home" ? "" : item.toLowerCase().replace(/ /g, "-")}`}
-                  className="block w-full py-2 hover:text-blue-400"
+                  className={`block w-full py-2 px-4 rounded-full transition-colors
+                    ${
+                      item === "Download App"
+                        ? "bg-green-500 hover:bg-green-600 text-white text-center shadow-md"
+                        : "hover:text-blue-400"
+                    }
+                  `}
                   onClick={() => setMobileOpen(false)}
                 >
                   {item}
