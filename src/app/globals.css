@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -12,6 +13,7 @@
   --font-mono: var(--font-geist-mono);
   --font-outfit: 'Outfit', Arial, Helvetica, sans-serif;
   --font-sacramento: 'Sacramento', cursive;
+  --font-league: 'League Gothic', Arial, Helvetica, sans-serif;
 }
 
 /* Dark mode */
@@ -28,10 +30,17 @@ body {
   color: var(--foreground);
   font-family: var(--font-outfit); /* default font */
 }
-/* Optional: classes for Outfit (can also use Tailwind font-sans) */
+
+/* Utility font classes */
 .font-outfit {
   font-family: var(--font-outfit);
 }
+
+.font-league {
+  font-family: var(--font-league);
+}
+
+/* Font faces */
 
 @font-face {
   font-family: 'Sacramento';
@@ -39,7 +48,6 @@ body {
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-
 }
 
 @font-face {
@@ -50,4 +58,10 @@ body {
   font-display: swap;
 }
 
-
+@font-face {
+  font-family: 'League Gothic';
+  src: url('/fonts/LeagueGothic-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

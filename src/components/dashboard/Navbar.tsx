@@ -1,17 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect } from "react";
-import Logo from "@/assets/logo/pickbleplay-logo.png";
 
 export default function Navbar({ children }: { children?: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const navItems = ["Home", "Find Courts", "Join Session", "About", "Contact", "Download App"];
-  const leftNav = navItems.slice(0, 3);
-  const rightNav = navItems.slice(3);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 120);
@@ -24,59 +20,30 @@ export default function Navbar({ children }: { children?: React.ReactNode }) {
       {/* Floating Glass Navbar */}
       <header
         className={`
-          fixed relative absolute z-500 left-1/2 -translate-x-1/2
+          fixed z-50 left-1/2 -translate-x-1/2
           transition-all duration-300 ease-in-out
-          ${scrolled ? "top-0 w-full rounded-none" : "top-6 w-[85%] rounded-full"}
-          bg-black/70 backdrop-blur-md text-white shadow-lg
+          ${scrolled ? "top-0 w-full rounded-none" : "top-6 w-full rounded-full"}
+          text-white
         `}
       >
-        <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
+        <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center relative">
 
-          {/* Left Nav */}
-          <ul className="hidden md:flex items-center gap-15">
-            {leftNav.map((item, idx) => (
-              <li key={idx}>
-                <Link
-                  href={`/${item === "Home" ? "" : item.toLowerCase().replace(/ /g, "-")}`}
-                  className={`font-medium transition-colors px-4 py-2 rounded-full
-                    ${
-                      item === "Download App"
-                        ? "bg-green-500 hover:bg-green-600 text-white shadow-md"
-                        : "hover:text-blue-400"
-                    }
-                  `}
-                >
-                  {item}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          {/* Center Logo */}
-          <div className="absolute left-1/2 -translate-x-1/2">
-            <Link href="/">
-              <Image
-                src={Logo}
-                alt="Pickbleplay Logo"
-                className={`
-                  object-contain rounded-full
-                  transition-all duration-500 ease-in-out
-                  ${scrolled ? "w-16 h-16 rotate-360" : "w-28 h-auto rotate-0"}
-                `}
-              />
-            </Link>
+          {/* Logo (left) */}
+          <div className="text-white font-bold text-xl z-10">
+            PicklePlay
           </div>
 
-          {/* Right Nav */}
-          <ul className="hidden md:flex items-center gap-10">
-            {rightNav.map((item, idx) => (
+          {/* Desktop Menu (perfectly centered) */}
+          <ul className="hidden md:flex items-center gap-10 w-full absolute left-1/2 -translate-x-1/4">
+            {navItems.map((item, idx) => (
               <li key={idx}>
                 <Link
                   href={`/${item === "Home" ? "" : item.toLowerCase().replace(/ /g, "-")}`}
-                  className={`font-medium transition-colors px-8 py-4 rounded-full
+                  className={`
+                    font-medium transition-colors px-4 py-2 rounded-full
                     ${
                       item === "Download App"
-                        ? "bg-green-500 hover:bg-green-600 text-white shadow-md"
+                        ? "bg-white text-black shadow-md hover:bg-white/90"
                         : "hover:text-blue-400"
                     }
                   `}
@@ -87,8 +54,8 @@ export default function Navbar({ children }: { children?: React.ReactNode }) {
             ))}
           </ul>
 
-          {/* Mobile Hamburger */}
-          <div className="md:hidden absolute right-6 text-white">
+          {/* Mobile Hamburger (right) */}
+          <div className="md:hidden ml-auto text-white">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="text-2xl focus:outline-none"
@@ -106,7 +73,8 @@ export default function Navbar({ children }: { children?: React.ReactNode }) {
               <li key={idx} className="w-full">
                 <Link
                   href={`/${item === "Home" ? "" : item.toLowerCase().replace(/ /g, "-")}`}
-                  className={`block w-full py-2 px-4 rounded-full transition-colors
+                  className={`
+                    block w-full py-2 px-4 rounded-full transition-colors
                     ${
                       item === "Download App"
                         ? "bg-green-500 hover:bg-green-600 text-white text-center shadow-md"
@@ -122,10 +90,6 @@ export default function Navbar({ children }: { children?: React.ReactNode }) {
           </ul>
         )}
       </header>
-
-      {/* Spacer so content isn’t hidden under fixed navbar */}
-      <div className="h-28" />
-
       {/* Page Content */}
       {children && <main>{children}</main>}
     </>
